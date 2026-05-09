@@ -1,7 +1,4 @@
 # psid-shelf-app
-Browser-based catalog for the PSID-SHELF dataset (10-row sample version)
-#
-# psid-shelf-app
 
 A browser-based catalog and explorer for the **PSID-SHELF** dataset — built to make one of social science's most powerful longitudinal datasets approachable for the rest of us.
 
@@ -32,10 +29,10 @@ To work with the real data, you need to download SHELF yourself from OpenICPSR (
 1. **Register and download SHELF** from OpenICPSR:
    [doi.org/10.3886/E194322](https://doi.org/10.3886/E194322)
    You'll get a Stata `.dta` file.
-2.2. **Run the splitter notebook** ([`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) — it reads the .dta and writes 30 topic CSVs into a folder of your choice. The notebook contains the full topic-to-variable mapping and verifies expected columns before writing. Takes about 5 minutes end to end.
+2. **Run the splitter notebook** ([`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) — it reads the .dta and writes 30 topic CSVs into a folder of your choice. The notebook contains the full topic-to-variable mapping and verifies expected columns before writing. Takes about 5 minutes end to end.
 3. **Point a local copy of `index.html` at your CSVs** and open it in any modern browser.
 
-Until step 2's script is published here, you can read the [PSID-SHELF User Guide](https://www.openicpsr.org/openicpsr/project/194322) for variable definitions and topic structure.
+For variable definitions and topic structure, see the [PSID-SHELF User Guide](https://www.openicpsr.org/openicpsr/project/194322).
 
 ## Local use
 
@@ -72,4 +69,5 @@ The code in this repository is released under the MIT License (see `LICENSE`). T
 ---
 
 *Built by [Joe Foley](https://github.com/JF11579). Issues and pull requests welcome.*
+
 
