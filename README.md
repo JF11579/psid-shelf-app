@@ -32,7 +32,7 @@ To work with the real data, you need to download SHELF yourself from OpenICPSR (
 1. **Register and download SHELF** from OpenICPSR:
    [doi.org/10.3886/E194322](https://doi.org/10.3886/E194322)
    You'll get a Stata `.dta` file.
-2. **Split the `.dta` into 30 topic CSVs.** *(Split script coming soon — currently in development. The 30 topics expected by the app are: covid, demographics, depression, earnings_nominal, earnings_real, education, employment, expenditures (4 sub-topics), family_income, family_structure, geography, health_chronic, health_general, housing, race_ethnicity, time_use, and wealth (10 sub-topics).)*
+2.2. **Run the splitter notebook** ([`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) — it reads the .dta and writes 30 topic CSVs into a folder of your choice. The notebook contains the full topic-to-variable mapping and verifies expected columns before writing. Takes about 5 minutes end to end.
 3. **Point a local copy of `index.html` at your CSVs** and open it in any modern browser.
 
 Until step 2's script is published here, you can read the [PSID-SHELF User Guide](https://www.openicpsr.org/openicpsr/project/194322) for variable definitions and topic structure.
