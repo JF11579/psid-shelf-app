@@ -1,0 +1,82 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww12720\viewh7800\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # psid-shelf-app\
+\
+A browser-based catalog and explorer for the **PSID-SHELF** dataset \'97 built to make one of social science's most powerful longitudinal datasets approachable for the rest of us.\
+\
+\uc0\u55357 \u56599  **Live site:** [psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)\
+\
+---\
+\
+## What this is\
+\
+The Panel Study of Income Dynamics (PSID) has followed thousands of American families since 1968 \'97 across generations, through every wave of social and economic change. The **PSID-SHELF** harmonized longitudinal file (Pfeffer, Daumler & Friedman, 2025) makes that data dramatically easier to use. But for newcomers, even the harmonized version can feel like a wall.\
+\
+This app is a way in. It's a single-page browser tool with three tabs:\
+\
+- **Variable Finder** \'97 search 30 topic areas by plain language or variable name\
+- **Data Explorer** \'97 preview what each topic's data actually looks like\
+- **Raw PSID Lookup** \'97 translate raw PSID variable codes into something readable\
+\
+It runs entirely in your browser. No accounts, no installs, no servers.\
+\
+## What you see here vs. the full dataset\
+\
+The version of the app in this repo and on the live site shows **10-row previews** of each topic. That's enough to understand the structure and decide whether SHELF is right for your project \'97 but it isn't analytically usable.\
+\
+To work with the real data, you need to download SHELF yourself from OpenICPSR (free; registration required) and run the data through a local copy of this app. SHELF's terms don't permit redistribution, so this repo provides the tool, not the data.\
+\
+## Getting the full data (the recipe)\
+\
+1. **Register and download SHELF** from OpenICPSR:\
+   [doi.org/10.3886/E194322](https://doi.org/10.3886/E194322)\
+   You'll get a Stata `.dta` file.\
+2. **Run the splitter notebook** ([`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) \'97 it reads the .dta and writes 30 topic CSVs into a folder of your choice. The notebook contains the full topic-to-variable mapping and verifies expected columns before writing. Takes about 5 minutes end to end.\
+3. **Point a local copy of `index.html` at your CSVs** and open it in any modern browser.\
+\
+For variable definitions and topic structure, see the [PSID-SHELF User Guide](https://www.openicpsr.org/openicpsr/project/194322).\
+\
+## Local use\
+\
+```bash\
+git clone https://github.com/JF11579/psid-shelf-app.git\
+cd psid-shelf-app\
+open index.html   # or just double-click it\
+```\
+\
+That's it. The app is one self-contained HTML file with the previews baked in.\
+\
+## Attribution\
+\
+PSID-SHELF was created by:\
+\
+- **Fabian T. Pfeffer**, Ludwig-Maximilians-Universit\'e4t M\'fcnchen\
+- **Davis Daumler**, University of Michigan\
+- **Esther Friedman**, University of Michigan\
+\
+Cite the dataset as:\
+> Pfeffer, Fabian T., Daumler, Davis, and Friedman, Esther. *PSID-SHELF, 1968\'962021: The PSID's Social, Health, and Economic Longitudinal File (PSID-SHELF), Beta Release.* Ann Arbor, MI: ICPSR [distributor], 2025-02-24. https://doi.org/10.3886/E194322V2\
+\
+This app is an independent project. It is not affiliated with or endorsed by the SHELF team or the PSID.\
+\
+## Related\
+\
+- **The PSID Book** \'97 a longer-form companion at [joe-foley.gitbook.io/psid-book](https://joe-foley.gitbook.io/psid-book)\
+- **Analysis notebooks** \'97 [PSID_For_the_Rest_of_US](https://github.com/JF11579/PSID_For_the_Rest_of_US)\
+\
+## License\
+\
+The code in this repository is released under the MIT License (see `LICENSE`). This license covers the app code only \'97 the underlying PSID-SHELF data is governed by ICPSR's terms of use.\
+\
+---\
+\
+*Built by [Joe Foley](https://github.com/JF11579). Issues and pull requests welcome.*\
+. \
+\
+\
+}
