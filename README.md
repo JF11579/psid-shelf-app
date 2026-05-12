@@ -14,7 +14,7 @@ This app is a way in. It's a single-page browser tool with three tabs:
 
 - **Variable Finder** — search 30 topic areas by plain language or variable name
 - **Data Explorer** — preview what each topic's data actually looks like
-- **Raw PSID Lookup** — translate raw PSID variable codes into something readable
+- **PSID Crosswalk** — translate raw PSID variable codes into something readable
 
 It runs entirely in your browser. No accounts, no installs, no servers.
 
