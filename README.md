@@ -20,11 +20,13 @@ This app is a way in. It's a single-page browser tool with three tabs:
 
 It runs entirely in your browser. No accounts, no installs, no servers.
 
-## What you see here vs. the full dataset
+## Two versions: the catalog and SHELF Studio
 
-The version of the app in this repo and on the live site shows **10-row previews** of each topic. That's enough to understand the structure and decide whether SHELF is right for your project — but it isn't analytically usable.
+The `index.html` in this repo (and the live site) shows **10-row previews** of each topic — enough to understand the structure and decide whether SHELF is right for your project, but not analytically usable.
 
-To work with the real data, you need to download SHELF yourself from OpenICPSR (free; registration required) and run the data through a local copy of this app. SHELF's terms don't permit redistribution, so this repo provides the tool, not the data.
+**SHELF Studio** (`shelf-studio.html`) is the full version. Load your own SHELF CSVs directly in the browser and get up to 100 rows per topic, all 30 topics, fully interactive. Nothing is uploaded anywhere.
+
+To use SHELF Studio you need to download SHELF yourself from OpenICPSR (free; registration required). SHELF's terms don't permit redistribution, so this repo provides the tool, not the data.
 
 ## Getting the full data (the recipe)
 
@@ -32,7 +34,9 @@ To work with the real data, you need to download SHELF yourself from OpenICPSR (
    [doi.org/10.3886/E194322](https://doi.org/10.3886/E194322)
    You'll get a Stata `.dta` file.
 2. **Run the splitter notebook** ([`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) — it reads the .dta and writes 30 topic CSVs into a folder of your choice. The notebook contains the full topic-to-variable mapping and verifies expected columns before writing. Takes about 5 minutes end to end.
-3. **Point a local copy of `index.html` at your CSVs** and open it in any modern browser.
+3. **Open `shelf-studio.html`** in any modern browser — no server needed.
+
+   A yellow **Load Full Data** strip appears just below the header. Click **"Load my CSVs"**, select the 30 topic CSVs the splitter produced, and the app reads them entirely in-browser via [PapaParse](https://www.papaparse.com/) — nothing is uploaded anywhere. Once all files are recognized, the header badge switches from gold to green and each topic shows up to 100 rows of real data instead of the built-in 10-row previews.
 
 For variable definitions and topic structure, see the [PSID-SHELF User Guide](https://www.openicpsr.org/openicpsr/project/194322).
 
@@ -44,7 +48,7 @@ cd psid-shelf-app
 open index.html   # or just double-click it
 ```
 
-That's it. The app is one self-contained HTML file with the previews baked in.
+That's it. `index.html` is self-contained — previews baked in, nothing to install. `shelf-studio.html` is the same but built to load your own data.
 
 ## Attribution
 
