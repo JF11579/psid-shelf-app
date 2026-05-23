@@ -4,7 +4,7 @@ A browser-based catalog and explorer for the **PSID-SHELF** dataset — built to
 
 🔗 **Live site:** [psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)
 
-![SHELF Studio — Variable Finder tab showing 30 topics, 6,021 variables, 84,121 individuals across 1968–2021](docs/screenshot.png)
+![PSID Studio Lite — Variable Finder tab showing 30 topics, 6,021 variables, 84,121 individuals across 1968–2021](docs/screenshot.png)
 
 ---
 
@@ -20,7 +20,7 @@ This app is a way in. It's a single-page browser tool with three tabs:
 
 It runs entirely in your browser. No accounts, no installs, no servers.
 
-## SHELF Studio — two ways to use it
+## PSID Studio — two ways to use it
 
 **Live demo** ([psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)): open in your browser with no setup. The app loads with baked-in 10-row samples for all 30 topics — enough to explore the variable structure and decide whether SHELF is right for your project.
 
