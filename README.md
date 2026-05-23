@@ -4,7 +4,7 @@ A browser-based catalog and explorer for the **PSID-SHELF** dataset — built to
 
 🔗 **Live site:** [psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)
 
-![PSID-SHELF Catalog — Variable Finder tab showing 30 topics, 6,021 variables, 84,121 individuals across 1968–2021](docs/screenshot.png)
+![SHELF Studio — Variable Finder tab showing 30 topics, 6,021 variables, 84,121 individuals across 1968–2021](docs/screenshot.png)
 
 ---
 
@@ -20,13 +20,11 @@ This app is a way in. It's a single-page browser tool with three tabs:
 
 It runs entirely in your browser. No accounts, no installs, no servers.
 
-## Two versions: the catalog and SHELF Studio
+## SHELF Studio — two ways to use it
 
-The `index.html` in this repo (and the live site) shows **10-row previews** of each topic — enough to understand the structure and decide whether SHELF is right for your project, but not analytically usable.
+**Live demo** ([psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)): open in your browser with no setup. The app loads with baked-in 10-row samples for all 30 topics — enough to explore the variable structure and decide whether SHELF is right for your project.
 
-**SHELF Studio** (`shelf-studio.html`) is the full version. Load your own SHELF CSVs directly in the browser and get up to 100 rows per topic, all 30 topics, fully interactive. Nothing is uploaded anywhere.
-
-To use SHELF Studio you need to download SHELF yourself from OpenICPSR (free; registration required). SHELF's terms don't permit redistribution, so this repo provides the tool, not the data.
+**Full-data build** (run locally): clone the repo, download SHELF from OpenICPSR (free; registration required), and open `index.html` in your browser. Load your own CSVs and the app switches to up to 100 rows per topic, fully interactive. Nothing is uploaded anywhere. SHELF's terms don't permit redistribution, so this repo provides the tool, not the data.
 
 ## Getting the full data (the recipe)
 
