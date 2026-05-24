@@ -32,7 +32,7 @@ It runs entirely in your browser. No accounts, no installs, no servers.
    [doi.org/10.3886/E194322](https://doi.org/10.3886/E194322)
    You'll get a Stata `.dta` file.
 2. **Run the splitter notebook** ([`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) — it reads the .dta and writes 30 topic CSVs into a folder of your choice. The notebook contains the full topic-to-variable mapping and verifies expected columns before writing. Takes about 5 minutes end to end.
-3. **Open `shelf-studio.html`** in any modern browser — no server needed.
+3. **Open `index.html`** in any modern browser — no server needed.
 
    A yellow **Load Full Data** strip appears just below the header. Click **"Load my CSVs"**, select the 30 topic CSVs the splitter produced, and the app reads them entirely in-browser via [PapaParse](https://www.papaparse.com/) — nothing is uploaded anywhere. Once all files are recognized, the header badge switches from gold to green and each topic shows up to 100 rows of real data instead of the built-in 10-row previews.
 
@@ -46,7 +46,7 @@ cd psid-shelf-app
 open index.html   # or just double-click it
 ```
 
-That's it. `index.html` is self-contained — previews baked in, nothing to install. `shelf-studio.html` is the same but built to load your own data.
+That's it. `index.html` is self-contained — previews baked in, nothing to install. It also supports loading your own CSVs via the Load Full Data strip.
 
 ## Attribution
 
