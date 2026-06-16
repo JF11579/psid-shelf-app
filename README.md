@@ -14,7 +14,7 @@ The Panel Study of Income Dynamics (PSID) has followed thousands of American fam
 
 This app is a way in. It's a single-page browser tool with three tabs:
 
-- **Variable Finder** — search 30 topic areas by plain language or variable name
+- **Variable Finder** — search 34 topic areas by plain language or variable name
 - **Data Explorer** — preview what each topic's data actually looks like
 - **PSID Crosswalk** — translate raw PSID variable codes into something readable
 
@@ -22,7 +22,7 @@ It runs entirely in your browser. No accounts, no installs, no servers.
 
 ## PSID Studio — two ways to use it
 
-**Live demo** ([psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)): open in your browser with no setup. The app loads with baked-in 10-row samples for all 30 topics — enough to explore the variable structure and decide whether SHELF is right for your project.
+**Live demo** ([psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)): open in your browser with no setup. The app loads with baked-in 10-row samples for all 34 topics — enough to explore the variable structure and decide whether SHELF is right for your project.
 
 **Full-data build** (run locally): clone the repo, download SHELF from OpenICPSR (free; registration required), and open `index.html` in your browser. Load your own CSVs and the app switches to up to 100 rows per topic, fully interactive. Nothing is uploaded anywhere. SHELF's terms don't permit redistribution, so this repo provides the tool, not the data.
 
@@ -31,10 +31,10 @@ It runs entirely in your browser. No accounts, no installs, no servers.
 1. **Register and download SHELF** from OpenICPSR:
    [doi.org/10.3886/E194322](https://doi.org/10.3886/E194322)
    You'll get a Stata `.dta` file.
-2. **Run the splitter notebook** ([`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) — it reads the .dta and writes 30 topic CSVs into a folder of your choice. The notebook contains the full topic-to-variable mapping and verifies expected columns before writing. Takes about 5 minutes end to end.
+2. **Run the splitter** (either [`prepare_data.py`](prepare_data.py) from the terminal, or [`PSID_SHELF_Topic_Splitter.ipynb`](PSID_SHELF_Topic_Splitter.ipynb)) — it reads the .dta and writes 34 topic CSVs into a folder of your choice. Both contain the full topic-to-variable mapping and verify expected columns before writing. Takes about 5 minutes end to end.
 3. **Open `index.html`** in any modern browser — no server needed.
 
-   A yellow **Load Full Data** strip appears just below the header. Click **"Load my CSVs"**, select the 30 topic CSVs the splitter produced, and the app reads them entirely in-browser via [PapaParse](https://www.papaparse.com/) — nothing is uploaded anywhere. Once all files are recognized, the header badge switches from gold to green and each topic shows up to 100 rows of real data instead of the built-in 10-row previews.
+   A yellow **Load Full Data** strip appears just below the header. Click **"Load my CSVs"**, select the 34 topic CSVs the splitter produced, and the app reads them entirely in-browser via [PapaParse](https://www.papaparse.com/) — nothing is uploaded anywhere. Once all files are recognized, the header badge switches from gold to green and each topic shows up to 100 rows of real data instead of the built-in 10-row previews.
 
 For variable definitions and topic structure, see the [PSID-SHELF User Guide](https://www.openicpsr.org/openicpsr/project/194322).
 
