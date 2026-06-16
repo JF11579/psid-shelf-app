@@ -333,6 +333,32 @@
   .preview-banner strong {
     color: var(--blue);
   }
+  .download-banner {
+    padding: 12px 20px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .download-btn {
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .download-btn:hover {
+    background: var(--blue-light);
+  }
+  .download-note {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
 
   /* ── CROSSWALK TAB ── */
   .crosswalk-placeholder {
@@ -716,6 +742,11 @@ function renderExplorer(container) {
         <strong>&#9432; Preview:</strong> Showing ${data.preview_rows.length} of ${data.row_count.toLocaleString()} rows and ${data.preview_cols.length} of ${data.col_count} columns.
         Full PSID-SHELF data available at <a href="https://doi.org/10.3886/E194322V2" target="_blank" style="color:var(--blue-light)">Open ICPSR</a>.
       </div>
+      ${loadedFiles[selectedTopic] ? `
+      <div class="download-banner">
+        <button id="download-csv-btn" class="download-btn">Download full ${TOPIC_LABELS[selectedTopic]} CSV (${data.row_count.toLocaleString()} rows)</button>
+        <span class="download-note">Includes ID, LINEAGE, and PNUM, so this file can be merged with other topics you download.</span>
+      </div>` : ''}
     </div>`;
 
   container.innerHTML = html;
@@ -724,6 +755,21 @@ function renderExplorer(container) {
     selectedTopic = e.target.value;
     render();
   });
+
+  const dlBtn = document.getElementById('download-csv-btn');
+  if (dlBtn) {
+    dlBtn.addEventListener('click', () => {
+      const file = loadedFiles[selectedTopic];
+      const url = URL.createObjectURL(file);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = selectedTopic + '.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  }
 }
 
 function renderCrosswalk(container) {
@@ -747,6 +793,7 @@ function renderCrosswalk(container) {
 const FILENAME_TO_TOPIC = {"covid.csv":"covid","demographics.csv":"demographics","depression.csv":"depression","earnings_nominal.csv":"earnings_nominal","earnings_real.csv":"earnings_real","education.csv":"education","employment.csv":"employment","expenditures_health.csv":"expenditures_health","expenditures_household.csv":"expenditures_household","expenditures_personal.csv":"expenditures_personal","expenditures_totals.csv":"expenditures_totals","family_income.csv":"family_income","family_structure.csv":"family_structure","geography.csv":"geography","health_chronic.csv":"health_chronic","health_general.csv":"health_general","housing.csv":"housing","race_ethnicity.csv":"race_ethnicity","time_use.csv":"time_use","wealth_business.csv":"wealth_business","wealth_debt.csv":"wealth_debt","wealth_home.csv":"wealth_home","wealth_investments.csv":"wealth_investments","wealth_other_assets.csv":"wealth_other_assets","wealth_real_estate.csv":"wealth_real_estate","wealth_savings.csv":"wealth_savings","wealth_totals_assets.csv":"wealth_totals_assets","wealth_totals_debt.csv":"wealth_totals_debt","wealth_totals_net.csv":"wealth_totals_net","wealth_vehicles.csv":"wealth_vehicles","health_disability_adl.csv":"health_disability_adl","health_disability_iadl.csv":"health_disability_iadl","health_body.csv":"health_body","health_hospitalization.csv":"health_hospitalization"};
 const PREVIEW_ROW_LIMIT = 100;
 const PREVIEW_COL_LIMIT = 20;
+const loadedFiles = {};
 const loadBtn = document.getElementById("load-csv-btn");
 const fileInput = document.getElementById("csv-file-input");
 const statusEl = document.getElementById("load-status");
@@ -764,7 +811,7 @@ fileInput.addEventListener("change", async (event) => {
     const topic = FILENAME_TO_TOPIC[file.name];
     if (!topic) { skipped++; continue; }
     if (!SHELF_DATA[topic]) { errors.push(file.name + ": topic " + topic + " not in app"); continue; }
-    try { await loadOneCSV(file, topic); loaded++; statusEl.textContent = "Loaded " + loaded + " / " + files.length + "..."; }
+    try { await loadOneCSV(file, topic); loadedFiles[topic] = file; loaded++; statusEl.textContent = "Loaded " + loaded + " / " + files.length + "..."; }
     catch (err) { errors.push(file.name + ": " + err.message); }
   }
   if (errors.length > 0) { statusEl.className = "load-strip-status error"; statusEl.textContent = "Loaded " + loaded + ", " + errors.length + " errors. See console."; console.error("CSV load errors:", errors); }
