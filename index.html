@@ -817,7 +817,7 @@ fileInput.addEventListener("change", async (event) => {
   if (errors.length > 0) { statusEl.className = "load-strip-status error"; statusEl.textContent = "Loaded " + loaded + ", " + errors.length + " errors. See console."; console.error("CSV load errors:", errors); }
   else if (skipped > 0) { statusEl.className = "load-strip-status success"; statusEl.textContent = "Loaded " + loaded + " topics (" + skipped + " files skipped)."; }
   else { statusEl.className = "load-strip-status success"; statusEl.textContent = "Loaded " + loaded + " topics. Showing first " + PREVIEW_ROW_LIMIT + " rows."; }
-  if (loaded > 0) { badgeEl.classList.add("loaded"); badgeEl.innerHTML = "Your Data &middot; " + PREVIEW_ROW_LIMIT + "-Row Preview"; render(); }
+  if (loaded > 0) { badgeEl.classList.add("loaded"); badgeEl.innerHTML = "Your Data &middot; " + PREVIEW_ROW_LIMIT + "-Row Preview"; document.querySelector(".header-title h1").textContent = "PSID Studio"; document.title = "PSID Studio"; render(); }
   loadBtn.disabled = false;
   fileInput.value = "";
 });
