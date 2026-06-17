@@ -4,7 +4,7 @@ A browser-based catalog and explorer for the **PSID-SHELF** dataset — built to
 
 🔗 **Live site:** [psid-shelf-app.netlify.app](https://psid-shelf-app.netlify.app)
 
-![PSID Studio Lite — Variable Finder tab showing 30 topics, 6,021 variables, 84,121 individuals across 1968–2021](docs/screenshot.png)
+![PSID Studio Lite — Variable Finder tab showing all 34 topics, 6,552 variables, 84,121 individuals across 1968–2021](docs/screenshot.png)
 
 ---
 
