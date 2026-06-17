@@ -28,6 +28,9 @@ It runs entirely in your browser. No accounts, no installs, no servers.
 
 ## Getting the full data (the recipe)
 
+📖 **New to this?** Download the [plain-English setup guide (PDF)](docs/cookbook-v6.pdf) — it walks through every step with screenshots, written for people who have never opened a terminal.
+
+
 1. **Register and download SHELF** from OpenICPSR:
    [doi.org/10.3886/E194322](https://doi.org/10.3886/E194322)
    You'll get a Stata `.dta` file.
